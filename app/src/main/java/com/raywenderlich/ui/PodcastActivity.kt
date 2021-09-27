@@ -41,7 +41,8 @@ import kotlinx.coroutines.launch
 
 class PodcastActivity : AppCompatActivity() {
 
-  private val TAG = javaClass.simpleName
+   val TAG = javaClass.simpleName
+
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
