@@ -11,27 +11,26 @@ import com.raywenderlich.podplay.databinding.SearchItemBinding
 import com.raywenderlich.viewmodel.SearchViewModel
 
 class PodcastListAdapter(
-    private var podcastSummaryViewList:
-    List<SearchViewModel.PodcastSummaryViewData>?,
-    private val podcastListAdapterListener:
-    PodcastListAdapterListener,
+    private var podcastSummaryViewList: List<SearchViewModel.PodcastSummaryViewData>?,
+    private val podcastListAdapterListener: PodcastListAdapterListener,
     private val parentActivity: Activity
+
 ) : RecyclerView.Adapter<PodcastListAdapter.ViewHolder>() {
+
     interface PodcastListAdapterListener {
         fun onShowDetails(podcastSummaryViewData:
                           SearchViewModel.PodcastSummaryViewData
         )
     }
-    inner class ViewHolder(
-        databinding: SearchItemBinding,
-        private val podcastListAdapterListener:
-        PodcastListAdapterListener
+    inner class ViewHolder(databinding: SearchItemBinding,
+        private val podcastListAdapterListener: PodcastListAdapterListener
+
     ) : RecyclerView.ViewHolder(databinding.root) {
         var podcastSummaryViewData: SearchViewModel.PodcastSummaryViewData? = null
         val nameTextView: TextView = databinding.podcastNameTextView
-        val lastUpdatedTextView: TextView =
-            databinding.podcastLastUpdatedTextView
+        val lastUpdatedTextView: TextView = databinding.podcastLastUpdatedTextView
         val podcastImageView: ImageView = databinding.podcastImage
+
         init {
             databinding.searchItem.setOnClickListener {
                 podcastSummaryViewData?.let {
@@ -45,10 +44,7 @@ class PodcastListAdapter(
         podcastSummaryViewList = podcastSummaryViewData
         this.notifyDataSetChanged()
     }
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): PodcastListAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PodcastListAdapter.ViewHolder {
         return ViewHolder(SearchItemBinding.inflate(
             LayoutInflater.from(parent.context), parent, false),
             podcastListAdapterListener)
@@ -60,6 +56,7 @@ class PodcastListAdapter(
         holder.podcastSummaryViewData = searchView
         holder.nameTextView.text = searchView.name
         holder.lastUpdatedTextView.text = searchView.lastUpdated
+
         Glide.with(parentActivity)
             .load(searchView.imageUrl)
             .into(holder.podcastImageView)

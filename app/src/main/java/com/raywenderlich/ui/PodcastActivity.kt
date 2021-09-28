@@ -56,17 +56,18 @@ import kotlinx.coroutines.withContext
 class PodcastActivity : AppCompatActivity(),
   PodcastListAdapter.PodcastListAdapterListener {
 
+  val TAG = javaClass.simpleName
   private val searchViewModel by viewModels<SearchViewModel>()
   private lateinit var podcastListAdapter: PodcastListAdapter
-  private lateinit var binding: ActivityPodcastBinding
-  val TAG = javaClass.simpleName
+  private lateinit var databinding:ActivityPodcastBinding
+
 
 
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    binding = ActivityPodcastBinding.inflate(layoutInflater)
-    setContentView(binding.root)
+    databinding = ActivityPodcastBinding.inflate(layoutInflater)
+    setContentView(databinding.root)
 
 
     val itunesService = ItunesService.instance
@@ -120,7 +121,7 @@ class PodcastActivity : AppCompatActivity(),
     handleIntent(intent)
   }
   private fun setupToolbar() {
-    setSupportActionBar(this.binding.toolbar)
+    setSupportActionBar(this.databinding.toolbar)
   }
   private fun setupViewModels() {
     val service = ItunesService.instance
