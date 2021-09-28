@@ -23,7 +23,9 @@ class SearchViewModel(application: Application) :
             itunesPodcast.collectionCensoredName,
             DateUtils.jsonDateToShortDate(itunesPodcast.releaseDate),
             itunesPodcast.artworkUrl30,
-            itunesPodcast.feedUrl)
+            itunesPodcast.feedUrl
+        )
+    }
 
         suspend fun searchPodcasts(term: String):
                 List<PodcastSummaryViewData> {
@@ -43,4 +45,3 @@ class SearchViewModel(application: Application) :
         }
 
     }
-}
