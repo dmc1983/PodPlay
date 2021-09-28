@@ -103,6 +103,6 @@ class PodcastActivity : AppCompatActivity() {
     handleIntent(intent)
   }
   private fun setupToolbar() {
-    setSupportActionBar(binding.toolbar)
+    setSupportActionBar(this.binding.toolbar)
   }
 }
