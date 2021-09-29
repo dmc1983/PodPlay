@@ -2,7 +2,7 @@ package com.raywenderlich.repository
 
 import com.raywenderlich.model.Episode
 import com.raywenderlich.model.Podcast
-import com.raywenderlich.podplay.service.FeedService
+import com.raywenderlich.service.FeedService
 import com.raywenderlich.service.RssFeedResponse
 import com.raywenderlich.util.DateUtils
 

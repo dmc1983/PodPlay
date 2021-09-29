@@ -48,7 +48,7 @@ import com.raywenderlich.adapter.PodcastListAdapter
 import com.raywenderlich.podplay.R
 import com.raywenderlich.podplay.databinding.ActivityPodcastBinding
 import com.raywenderlich.podplay.repository.ItunesRepo
-import com.raywenderlich.podplay.service.FeedService
+import com.raywenderlich.service.FeedService
 import com.raywenderlich.podplay.service.ItunesService
 import com.raywenderlich.repository.PodcastRepo
 import com.raywenderlich.ui.PodcastDetailsFragment

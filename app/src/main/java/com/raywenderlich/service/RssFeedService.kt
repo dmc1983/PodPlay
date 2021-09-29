@@ -1,13 +1,13 @@
-package com.raywenderlich.podplay.service
+package com.raywenderlich.service
 
 import com.raywenderlich.podplay.BuildConfig
-import com.raywenderlich.service.RssFeedResponse
 import com.raywenderlich.util.DateUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Response
 import okhttp3.ResponseBody
+import okhttp3.logging.HttpLoggingInterceptor
 import org.w3c.dom.Node
 import retrofit2.Retrofit
 import retrofit2.http.GET
@@ -44,7 +44,7 @@ class RssFeedService private constructor() {
           return null
 
       } else {
-        var rssFeedResponse : RssFeedResponse? = null
+        val rssFeedResponse : RssFeedResponse? = null
         val dbFactory = DocumentBuilderFactory.newInstance()
         val dBuilder = dbFactory.newDocumentBuilder()
         withContext(Dispatchers.IO) {
