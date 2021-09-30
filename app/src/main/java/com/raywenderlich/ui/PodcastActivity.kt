@@ -91,6 +91,7 @@ class PodcastActivity : AppCompatActivity(),
     setupToolbar()
     setupViewModels()
     updateControls()
+    createSubscription()
     handleIntent(intent)
     addBackStackListener()
   }
@@ -172,14 +173,14 @@ class PodcastActivity : AppCompatActivity(),
       podcastViewModel.getPodcast(podcastSummaryViewData)
     }
     private fun createSubscription() {
-      podcastViewModel.podcastLiveData.observe(this) {
+      podcastViewModel.podcastLiveData.observe(this, {
         hideProgressBar()
         if (it != null) {
           showDetailsFragment()
         } else {
           showError("Error loading feed")
         }
-      }
+      })
     }
 
   }
